@@ -1,3 +1,10 @@
 {
-    "khaled_nabil" : "Dr. Khaled Nabil"
+    "khaled_nabil" : "Dr. Khaled Nabil",
+    "homepage" : "Homepage",
+    "book_app" : "Book Appointement",
+    "services" : "Services",
+    "beforeafter" : "Before & After",
+    "articles" : "Articles",
+    "contact" : "Contact",
+    "about" : "About"
 }

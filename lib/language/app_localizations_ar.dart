@@ -6,4 +6,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get khaled_nabil => 'د / خالد نبيل';
+
+  @override
+  String get homepage => 'الرئيسية';
+
+  @override
+  String get book_app => 'حجز موعد';
+
+  @override
+  String get services => 'الخدمات';
+
+  @override
+  String get beforeafter => 'قبل و بعد';
+
+  @override
+  String get articles => 'المقالات';
+
+  @override
+  String get contact => 'التواصل';
+
+  @override
+  String get about => 'عن الطبيب';
 }

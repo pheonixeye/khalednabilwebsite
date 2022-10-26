@@ -6,6 +6,13 @@ class Styles {
   static const COLOR = Colors.blue;
   static const SCAFFOLDCOLOR = Colors.grey;
 
+  static const HEROCARDBORDER = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(20),
+      topRight: Radius.circular(20),
+    ),
+  );
+
   static final LIGHTTHEMEDATA = ThemeData(
     primarySwatch: Styles.COLOR,
     fontFamily: 'Cairo',

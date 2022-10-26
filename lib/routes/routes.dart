@@ -18,22 +18,36 @@ final GoRouter router = GoRouter(
       },
       redirect: (state) {
         if (state.fullpath == '/') {
-          return '/ar';
+          return '/ar/0';
         }
         return null;
       },
       routes: [
         GoRoute(
-          path: ':lang',
+          path: ':lang/:id',
           name: 'homepage',
           builder: (context, state) {
             final lang = state.params['lang'] as String;
             context.read<PxLocale>().setLang(lang);
             final key = ValueKey(lang);
+
+            final pageStr = state.params['id'] as String;
+            final page = int.parse(pageStr);
+            final valueKeyIndex = ValueKey(page);
+            print(state.params);
             return MainRoutePage(
               key: key,
-              child: const HomePage(),
+              child: HomePage(
+                key: valueKeyIndex,
+                pageIndex: page,
+              ),
             );
+          },
+          redirect: (state) {
+            if (state.params.length == 1) {
+              return '/${state.params['lang']}/0';
+            }
+            return null;
           },
         ),
       ],

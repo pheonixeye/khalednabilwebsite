@@ -98,6 +98,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dr. Khaled Nabil'**
   String get khaled_nabil;
+
+  /// No description provided for @homepage.
+  ///
+  /// In en, this message translates to:
+  /// **'Homepage'**
+  String get homepage;
+
+  /// No description provided for @book_app.
+  ///
+  /// In en, this message translates to:
+  /// **'Book Appointement'**
+  String get book_app;
+
+  /// No description provided for @services.
+  ///
+  /// In en, this message translates to:
+  /// **'Services'**
+  String get services;
+
+  /// No description provided for @beforeafter.
+  ///
+  /// In en, this message translates to:
+  /// **'Before & After'**
+  String get beforeafter;
+
+  /// No description provided for @articles.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles'**
+  String get articles;
+
+  /// No description provided for @contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get contact;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

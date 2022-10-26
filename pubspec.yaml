@@ -42,7 +42,9 @@ dependencies:
   intl:
   after_layout:
   flutter_easyloading:
-
+  responsive_framework:
+  # collapsible_sidebar:
+  # side_navigation:
 
 dev_dependencies:
   flutter_test:

@@ -6,4 +6,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get khaled_nabil => 'Dr. Khaled Nabil';
+
+  @override
+  String get homepage => 'Homepage';
+
+  @override
+  String get book_app => 'Book Appointement';
+
+  @override
+  String get services => 'Services';
+
+  @override
+  String get beforeafter => 'Before & After';
+
+  @override
+  String get articles => 'Articles';
+
+  @override
+  String get contact => 'Contact';
+
+  @override
+  String get about => 'About';
 }

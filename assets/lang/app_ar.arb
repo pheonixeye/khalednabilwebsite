@@ -1,3 +1,10 @@
 {
-    "khaled_nabil" : "د / خالد نبيل"
+    "khaled_nabil" : "د / خالد نبيل",
+    "homepage" : "الرئيسية",
+    "book_app" : "حجز موعد",
+    "services" : "الخدمات",
+    "beforeafter" : "قبل و بعد",
+    "articles" : "المقالات",
+    "contact" : "التواصل",
+    "about" : "عن الطبيب"
 }
