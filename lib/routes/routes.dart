@@ -34,7 +34,7 @@ final GoRouter router = GoRouter(
             final pageStr = state.params['id'] as String;
             final page = int.parse(pageStr);
             final valueKeyIndex = ValueKey(page);
-            print(state.params);
+            // print(state.params);
             return MainRoutePage(
               key: key,
               child: HomePage(

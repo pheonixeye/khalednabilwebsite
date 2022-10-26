@@ -67,8 +67,7 @@ class _HomePageState extends State<HomePage>
                         backgroundColor: Colors.white.withOpacity(0.4),
                         foregroundColor: Colors.white.withOpacity(0.4),
                         shadowColor: Colors.transparent,
-                        //! logo placeholder
-                        // titleTextStyle: TextTheme().headline6,
+                        //! logo
                         title: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage>
                             Text(
                               context.loc.khaled_nabil,
                               style: TextStyle(
-                                fontSize: isMobile(context) ? 22 : 32,
+                                fontSize: isMobile(context) ? 22 : 36,
                                 color: Colors.white,
                                 decorationColor: Colors.amber,
                                 decorationStyle: TextDecorationStyle.wavy,

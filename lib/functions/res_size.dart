@@ -8,3 +8,9 @@ bool isMobile(BuildContext context) {
     return false;
   }
 }
+
+double sectionHeightHomepageView(BuildContext context) {
+  return isMobile(context)
+      ? MediaQuery.of(context).size.height * 0.4
+      : MediaQuery.of(context).size.height * 0.6;
+}

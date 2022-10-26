@@ -12,6 +12,12 @@ class Styles {
       topRight: Radius.circular(20),
     ),
   );
+  static const ABOUTCARDBORDER = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      bottomLeft: Radius.circular(20),
+      bottomRight: Radius.circular(20),
+    ),
+  );
 
   static final LIGHTTHEMEDATA = ThemeData(
     primarySwatch: Styles.COLOR,

@@ -17,7 +17,7 @@ class _PersistentSideBarState extends State<PersistentSideBar> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 300),
       color: Colors.white.withOpacity(0.4),
       width: extended ? 256 : 72,
       height: double.infinity,

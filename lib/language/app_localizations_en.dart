@@ -27,4 +27,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get about => 'About';
+
+  @override
+  String get spec => 'Plastic Surgery & Hair Transplantation Specialist';
 }

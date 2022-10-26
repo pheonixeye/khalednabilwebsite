@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:khalednabilwebsite/functions/res_size.dart';
+import 'package:khalednabilwebsite/providers/locale_p.dart';
 import 'package:khalednabilwebsite/styles/styles.dart';
+import 'package:khalednabilwebsite/exports/exports.dart';
+import 'package:provider/provider.dart';
 
 class DivHero extends StatefulWidget {
   const DivHero({Key? key}) : super(key: key);
@@ -34,7 +38,7 @@ class _DivHeroState extends State<DivHero> with SingleTickerProviderStateMixin {
   }
 
   _animate() {
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.linear);
     _changeValue = Tween(begin: 0.0, end: 1.0).animate(_animation);
     _controller.forward(from: 0.0);
     _changeValue.addListener(() {
@@ -51,15 +55,16 @@ class _DivHeroState extends State<DivHero> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: isMobile(context)
-          ? MediaQuery.of(context).size.height * 0.5
-          : MediaQuery.of(context).size.height * 0.7,
+      height: sectionHeightHomepageView(context),
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 10,
         shape: Styles.HEROCARDBORDER,
         child: Stack(
+          alignment: Alignment.center,
+          fit: StackFit.loose,
           children: [
+            //image
             Opacity(
               opacity: _controller.value,
               child: Image.asset(
@@ -68,6 +73,106 @@ class _DivHeroState extends State<DivHero> with SingleTickerProviderStateMixin {
                 width: double.infinity,
                 height: double.infinity,
               ),
+            ),
+            //text
+            //call to action
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Spacer(),
+                Text(
+                  context.loc.khaled_nabil,
+                  style: TextStyle(
+                    fontSize: isMobile(context) ? 26 : 42,
+                    color: Colors.white,
+                    decorationColor: Colors.amber,
+                    decorationStyle: TextDecorationStyle.wavy,
+                    shadows: [
+                      BoxShadow(
+                        offset: Offset(
+                          _changeValue.value * 6,
+                          _changeValue.value * 6,
+                        ),
+                        blurRadius: _changeValue.value * 6,
+                        spreadRadius: _changeValue.value * 6,
+                        color: Colors.amber,
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  context.loc.spec,
+                  style: TextStyle(
+                    fontSize: isMobile(context) ? 22 : 38,
+                    color: Colors.white,
+                    decorationColor: Colors.amber,
+                    decorationStyle: TextDecorationStyle.wavy,
+                    shadows: const [
+                      BoxShadow(
+                        offset: Offset(3, 3),
+                        blurRadius: 3,
+                        spreadRadius: 3,
+                        color: Colors.amber,
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const Spacer(
+                  flex: 2,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 300.0 / (_changeValue.value * 6),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      GoRouter.of(context)
+                          .go('/${context.read<PxLocale>().lang}/1');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        context.loc.book_app,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    right: 300.0 / (_changeValue.value * 6),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      GoRouter.of(context)
+                          .go('/${context.read<PxLocale>().lang}/2');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        context.loc.services,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+              ],
             ),
           ],
         ),

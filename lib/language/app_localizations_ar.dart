@@ -27,4 +27,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get about => 'عن الطبيب';
+
+  @override
+  String get spec => 'اخصائي جراحات التجميل و زراعة الشعر';
 }
