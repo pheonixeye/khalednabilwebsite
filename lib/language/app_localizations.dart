@@ -111,7 +111,7 @@ abstract class AppLocalizations {
   /// No description provided for @book_app.
   ///
   /// In en, this message translates to:
-  /// **'Book Appointement'**
+  /// **'Book Now'**
   String get book_app;
 
   /// No description provided for @services.

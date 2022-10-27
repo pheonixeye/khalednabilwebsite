@@ -14,3 +14,9 @@ double sectionHeightHomepageView(BuildContext context) {
       ? MediaQuery.of(context).size.height * 0.4
       : MediaQuery.of(context).size.height * 0.6;
 }
+
+double sectionHeightHomepageViewAboutDiv(BuildContext context) {
+  return isMobile(context)
+      ? MediaQuery.of(context).size.height * 0.5
+      : MediaQuery.of(context).size.height * 0.8;
+}

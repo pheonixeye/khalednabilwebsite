@@ -11,7 +11,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homepage => 'Homepage';
 
   @override
-  String get book_app => 'Book Appointement';
+  String get book_app => 'Book Now';
 
   @override
   String get services => 'Services';
