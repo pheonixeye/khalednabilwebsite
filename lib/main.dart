@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:khalednabilwebsite/config/const.dart';
 import 'package:khalednabilwebsite/language/app_localizations.dart';
 import 'package:khalednabilwebsite/providers/_px_main.dart';
 import 'package:khalednabilwebsite/providers/locale_p.dart';
@@ -9,6 +10,12 @@ import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
+  const String environment = String.fromEnvironment(
+    'ENVIRONMENT',
+    defaultValue: Environment.PROD,
+  );
+
+  Environment().initConfig(environment);
   runApp(const MyApp());
 }
 

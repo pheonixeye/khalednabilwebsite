@@ -43,8 +43,8 @@ dependencies:
   after_layout:
   flutter_easyloading:
   responsive_framework:
-  # collapsible_sidebar:
-  # side_navigation:
+  url_launcher:
+  arabic_numbers: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +90,7 @@ flutter:
     - family : Cairo
       fonts :
         - asset: assets/fonts/Cairo-Regular.ttf
+          weight: 400
         - asset: assets/fonts/Cairo-Bold.ttf
           weight: 900
         - asset: assets/fonts/Cairo-Light.ttf

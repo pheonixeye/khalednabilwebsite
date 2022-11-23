@@ -11,7 +11,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homepage => 'Homepage';
 
   @override
-  String get book_app => 'Book Now';
+  String get book_app => 'Book Appointement';
 
   @override
   String get services => 'Services';
@@ -30,4 +30,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get spec => 'Plastic Surgery & Hair Transplantation Specialist';
+
+  @override
+  String get phone => 'Phone';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get hours => 'Hours';
+
+  @override
+  String get follow => 'Follow Us';
+
+  @override
+  String get rights => 'All Rights Reserved @Dr. Khaled Nabil Clinics';
+
+  @override
+  String get design => 'Designed & Maintained By Dr. Kareem Zaher';
+
+  @override
+  String get media => 'Media';
+
+  @override
+  String get venue => 'Venue';
 }

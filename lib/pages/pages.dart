@@ -5,6 +5,7 @@ import 'package:khalednabilwebsite/sr_before_after_view/before_after_view.dart';
 import 'package:khalednabilwebsite/sr_book_appointement/book_app_view.dart';
 import 'package:khalednabilwebsite/sr_contact/contact_view.dart';
 import 'package:khalednabilwebsite/sr_home_view/home_view.dart';
+import 'package:khalednabilwebsite/sr_media/media_view.dart';
 import 'package:khalednabilwebsite/sr_services/services_view.dart';
 
 class Pages {
@@ -17,6 +18,8 @@ class Pages {
     ServicesView(),
 //before&after
     BeforeAfterView(),
+//media
+    MediaView(),
 //articles
     ArticlesView(),
 //contact

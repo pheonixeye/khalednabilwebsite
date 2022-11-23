@@ -12,7 +12,7 @@ class DivBookApp extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 10,
-        color: Colors.white.withOpacity(0.4),
+        color: Styles.MAINPAGECOMPONENTCARDCOLOR,
         shape: Styles.HEROCARDBORDER,
         child: Stack(
           alignment: Alignment.center,

@@ -25,7 +25,7 @@ class _PageViewHomepageState extends State<PageViewHomepage> {
     return Consumer<PxNavIndex>(
       builder: (context, i, c) {
         return PageView.builder(
-          physics: const BouncingScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           scrollDirection: isMobile(context) ? Axis.vertical : Axis.horizontal,
           controller: _pageController,
           itemCount: MxNavigation.NAVITEMS(context).length,

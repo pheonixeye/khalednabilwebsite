@@ -1,0 +1,202 @@
+// ignore: avoid_web_libraries_in_flutter
+// ignore_for_file: constant_identifier_names
+
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:async';
+
+import 'package:after_layout/after_layout.dart';
+import 'package:flutter/material.dart';
+import 'package:khalednabilwebsite/components/null_value_widget.dart';
+import 'package:khalednabilwebsite/functions/res_size.dart';
+import 'package:khalednabilwebsite/providers/locale_p.dart';
+import 'package:khalednabilwebsite/providers/px_clinics_get.dart';
+import 'package:khalednabilwebsite/styles/styles.dart';
+import 'package:provider/provider.dart';
+
+import '../_widgets_contact_div/_exp.dart' deferred as wids;
+
+class DivContact extends StatefulWidget {
+  const DivContact({Key? key}) : super(key: key);
+
+  @override
+  State<DivContact> createState() => _DivContactState();
+}
+
+class _DivContactState extends State<DivContact> with AfterLayoutMixin {
+  @override
+  void initState() {
+    super.initState();
+    wids.loadLibrary();
+  }
+
+  int page = 0;
+  late Timer timer;
+
+  int _page() {
+    return page + 1 >= context.read<PxClinicGet>().clinics!.length
+        ? 0
+        : page + 1;
+  }
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    _initClinics().then((value) {
+      timer = Timer.periodic(const Duration(seconds: 10), (timer) {
+        pageController.animateToPage(
+          _page(),
+          duration: const Duration(seconds: 3),
+          curve: Curves.ease,
+        );
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    pageController.dispose();
+    timer.cancel();
+  }
+
+  Future _initClinics() async {
+    await context.read<PxClinicGet>().fetchClinics();
+  }
+
+  final pageController = PageController();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: sectionHeightHomepageViewAboutDiv(context),
+      child: Card(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        elevation: 10,
+        shape: Styles.ABOUTCARDBORDER,
+        color: Styles.MAINPAGECOMPONENTCARDCOLOR,
+        child: Builder(
+          builder: (context) {
+            if (isMobile(context)) {
+              return Consumer2<PxClinicGet, PxLocale>(
+                builder: (context, cl, l, c) {
+                  while (cl.clinics == null || cl.clinics!.isEmpty) {
+                    return const WhileValueEqualNullWidget();
+                  }
+                  return PageView.builder(
+                    itemCount: cl.clinics!.length,
+                    controller: pageController,
+                    onPageChanged: (value) {
+                      page = value;
+                    },
+                    itemBuilder: (context, index) {
+                      String venue = l.lang == 'en'
+                          ? '${cl.clinics![index].govEn} - ${cl.clinics![index].distEn} - ${cl.clinics![index].venueEn}'
+                          : '${cl.clinics![index].govAr} - ${cl.clinics![index].distAr} - ${cl.clinics![index].venueAr}';
+                      String address = l.lang == 'en'
+                          ? cl.clinics![index].addressEn
+                          : cl.clinics![index].addressAr;
+                      return Column(
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: wids.MapViewIframe(
+                              link: cl.clinics![index].locationEmbedLink,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  flex: 2,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      wids.VenueTile(
+                                        venue: venue,
+                                      ),
+                                      wids.AddressTile(
+                                        address: address,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 3,
+                                  child: wids.HoursTile(
+                                    schedule: cl.clinics![index].schedule,
+                                    hasSpecialSchedule:
+                                        cl.clinics![index].hasSpecialSchedule,
+                                    ssEn: cl.clinics![index].specialScheduleEn,
+                                    ssAr: cl.clinics![index].specialScheduleAr,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              );
+            } else {
+              return Consumer2<PxClinicGet, PxLocale>(
+                builder: (context, cl, l, c) {
+                  while (cl.clinics == null || cl.clinics!.isEmpty) {
+                    return const WhileValueEqualNullWidget();
+                  }
+                  return PageView.builder(
+                    itemCount: cl.clinics!.length,
+                    controller: pageController,
+                    onPageChanged: (value) {
+                      page = value;
+                    },
+                    itemBuilder: (context, index) {
+                      String venue = l.lang == 'en'
+                          ? '${cl.clinics![index].govEn} - ${cl.clinics![index].distEn} - ${cl.clinics![index].venueEn}'
+                          : '${cl.clinics![index].govAr} - ${cl.clinics![index].distAr} - ${cl.clinics![index].venueAr}';
+                      String address = l.lang == 'en'
+                          ? cl.clinics![index].addressEn
+                          : cl.clinics![index].addressAr;
+                      return Row(
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: wids.MapViewIframe(
+                              link: cl.clinics![index].locationEmbedLink,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Column(
+                              children: [
+                                wids.VenueTile(
+                                  venue: venue,
+                                ),
+                                wids.AddressTile(
+                                  address: address,
+                                ),
+                                wids.HoursTile(
+                                  schedule: cl.clinics![index].schedule,
+                                  hasSpecialSchedule:
+                                      cl.clinics![index].hasSpecialSchedule,
+                                  ssEn: cl.clinics![index].specialScheduleEn,
+                                  ssAr: cl.clinics![index].specialScheduleAr,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              );
+            }
+          },
+        ),
+      ),
+    );
+  }
+}

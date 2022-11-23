@@ -5,9 +5,11 @@ import 'package:khalednabilwebsite/exports/exports.dart';
 
 const mFont = TextStyle(
   fontSize: 14,
+  color: Colors.amber,
 );
 const oFont = TextStyle(
   fontSize: 18,
+  color: Colors.amber,
 );
 
 TextStyle _tStyle(BuildContext context) {
@@ -25,7 +27,7 @@ class DivAbout extends StatelessWidget {
         clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 10,
         shape: Styles.ABOUTCARDBORDER,
-        color: Colors.white.withOpacity(0.4),
+        color: Styles.MAINPAGECOMPONENTCARDCOLOR,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

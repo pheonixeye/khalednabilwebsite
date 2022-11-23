@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khalednabilwebsite/components/demo_text.dart';
 import 'package:khalednabilwebsite/exports/exports.dart';
 
 class BookAppointementView extends StatelessWidget {
@@ -7,7 +8,7 @@ class BookAppointementView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(context.loc.book_app),
+      child: DemoText(context.loc.book_app),
     );
   }
 }

@@ -36,6 +36,13 @@ class MxNavigation {
           ),
         ),
         MxNavigation(
+          icon: const Icon(Icons.video_collection),
+          text: Text(
+            context.loc.media,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        MxNavigation(
           icon: const Icon(Icons.file_copy),
           text: Text(context.loc.articles),
         ),

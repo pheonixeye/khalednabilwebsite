@@ -42,8 +42,7 @@ class _PersistentSideBarState extends State<PersistentSideBar> {
                 onDestinationSelected: (value) {
                   i.setIndex(value);
                   GoRouter.of(context).go('/${l.lang}/${i.index}');
-
-                  e.toggle();
+                  e.exp ? e.toggle() : null;
                 },
                 destinations: MxNavigation.NAVITEMS(context).map((e) {
                   return NavigationRailDestination(

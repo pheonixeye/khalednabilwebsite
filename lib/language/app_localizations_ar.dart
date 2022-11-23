@@ -30,4 +30,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spec => 'اخصائي جراحات التجميل و زراعة الشعر';
+
+  @override
+  String get phone => 'التليفون';
+
+  @override
+  String get address => 'العنوان';
+
+  @override
+  String get hours => 'المواعيد';
+
+  @override
+  String get follow => 'تابعونا علي';
+
+  @override
+  String get rights => 'جميع حقوق النسخ محفوظة @ عيادات د / خالد نبيل';
+
+  @override
+  String get design => 'تصميم و تنفيذ د / كريم زاهر';
+
+  @override
+  String get media => 'الفيديو';
+
+  @override
+  String get venue => 'المكان';
 }

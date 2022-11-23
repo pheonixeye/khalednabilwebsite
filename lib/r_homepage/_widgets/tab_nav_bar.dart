@@ -4,6 +4,7 @@ import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:khalednabilwebsite/models/navigation_m.dart';
+import 'package:khalednabilwebsite/pages/pages.dart';
 import 'package:khalednabilwebsite/providers/locale_p.dart';
 import 'package:khalednabilwebsite/providers/nav_index_p.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class _NavTabBarState extends State<NavTabBar>
     _tabController = TabController(
       initialIndex: context.read<PxNavIndex>().index,
       animationDuration: _duration,
-      length: 7,
+      length: Pages.pages.length,
       vsync: this,
     );
     super.initState();

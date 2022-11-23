@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khalednabilwebsite/components/demo_text.dart';
 import 'package:khalednabilwebsite/exports/exports.dart';
 
 class ContactView extends StatelessWidget {
@@ -7,7 +8,7 @@ class ContactView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(context.loc.contact),
+      child: DemoText(context.loc.contact),
     );
   }
 }

@@ -16,7 +16,7 @@ class GlobalDivider extends StatelessWidget {
         child: const Center(
           child: Icon(
             Icons.star,
-            color: Colors.amber,
+            color: Colors.transparent,
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khalednabilwebsite/components/demo_text.dart';
 import 'package:khalednabilwebsite/exports/exports.dart';
 
 class AboutView extends StatelessWidget {
@@ -7,7 +8,7 @@ class AboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(context.loc.about),
+      child: DemoText(context.loc.about),
     );
   }
 }

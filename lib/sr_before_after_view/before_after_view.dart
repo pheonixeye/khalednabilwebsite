@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khalednabilwebsite/components/demo_text.dart';
 import 'package:khalednabilwebsite/exports/exports.dart';
 
 class BeforeAfterView extends StatelessWidget {
@@ -7,7 +8,7 @@ class BeforeAfterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(context.loc.beforeafter),
+      child: DemoText(context.loc.beforeafter),
     );
   }
 }

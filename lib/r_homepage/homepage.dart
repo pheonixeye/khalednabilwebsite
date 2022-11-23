@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage>
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/bkgrnd.jpg'),
+              image: AssetImage('images/bkgrnd2.jpg'),
               fit: BoxFit.cover,
             ),
           ),
