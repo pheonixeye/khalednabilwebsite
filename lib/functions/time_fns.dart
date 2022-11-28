@@ -35,3 +35,9 @@ int hourInt(int hour) {
     return hour;
   }
 }
+
+DateTime NOW = DateTime(
+  DateTime.now().year,
+  DateTime.now().month,
+  DateTime.now().day,
+);

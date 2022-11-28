@@ -194,6 +194,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Venue'**
   String get venue;
+
+  /// No description provided for @no_clinic_selected.
+  ///
+  /// In en, this message translates to:
+  /// **'No Clinic Selected...Select Clinic First...'**
+  String get no_clinic_selected;
+
+  /// No description provided for @no_day_selected.
+  ///
+  /// In en, this message translates to:
+  /// **'No Day Selected...Select Day First...'**
+  String get no_day_selected;
+
+  /// No description provided for @select_clinic.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Clinic'**
+  String get select_clinic;
+
+  /// No description provided for @select_weekday.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Weekday'**
+  String get select_weekday;
+
+  /// No description provided for @select_day.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Date'**
+  String get select_day;
+
+  /// No description provided for @select_info.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Info'**
+  String get select_info;
+
+  /// No description provided for @booking_confirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking Confirmed'**
+  String get booking_confirmed;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

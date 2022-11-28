@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khalednabilwebsite/components/link_text.dart';
 import 'package:khalednabilwebsite/functions/res_size.dart';
+import 'package:khalednabilwebsite/functions/tr_number.dart';
 import 'package:khalednabilwebsite/styles/styles.dart';
 import 'package:khalednabilwebsite/exports/exports.dart';
 
@@ -21,8 +22,12 @@ class DivFooter extends StatelessWidget {
             title: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                '${context.loc.rights}' ' ${DateTime.now().year}',
+                '${context.loc.rights}'
+                ' ${trNumber(DateTime.now().year, context)}',
                 textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
             subtitle: Padding(
@@ -32,7 +37,7 @@ class DivFooter extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.grey,
                 ),
                 align: TextAlign.center,
               ),

@@ -15,5 +15,12 @@
     "rights" : "جميع حقوق النسخ محفوظة @ عيادات د / خالد نبيل",
     "design" : "تصميم و تنفيذ د / كريم زاهر",
     "media" : "الفيديو",
-    "venue" : "المكان"
+    "venue" : "المكان",
+    "no_clinic_selected" : "اختر العيادة اولا...",
+    "no_day_selected" : "اختر اليوم اولا...",
+    "select_clinic": "اختر العيادة",
+    "select_weekday": "اختر اليوم",
+    "select_day": "اختر التاريخ",
+    "select_info": "ادخل بياناتك",
+    "booking_confirmed": "تم تاكيد الحجز"
 }

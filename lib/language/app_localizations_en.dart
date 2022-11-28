@@ -54,4 +54,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get venue => 'Venue';
+
+  @override
+  String get no_clinic_selected => 'No Clinic Selected...Select Clinic First...';
+
+  @override
+  String get no_day_selected => 'No Day Selected...Select Day First...';
+
+  @override
+  String get select_clinic => 'Select Clinic';
+
+  @override
+  String get select_weekday => 'Pick Weekday';
+
+  @override
+  String get select_day => 'Pick Date';
+
+  @override
+  String get select_info => 'Enter Info';
+
+  @override
+  String get booking_confirmed => 'Booking Confirmed';
 }

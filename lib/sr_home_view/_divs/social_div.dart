@@ -39,8 +39,8 @@ class DivSocial extends StatelessWidget {
             SocialButton(
               heroTag: 'Instagram',
               onPressed: () {},
-              backgroundColor: Colors.black,
-              child: const Icon(Icons.camera),
+              backgroundColor: Colors.white,
+              child: Image.asset('images/instagram.png'),
             ),
             const Spacer(),
             SocialButton(
@@ -72,16 +72,19 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO MOD ICONS FOR VIEW
     return Tooltip(
       message: heroTag,
       child: isMobile(context)
           ? FloatingActionButton(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
               heroTag: heroTag,
               backgroundColor: backgroundColor,
               onPressed: onPressed,
               child: child,
             )
           : FloatingActionButton.large(
+              clipBehavior: Clip.antiAliasWithSaveLayer,
               heroTag: heroTag,
               backgroundColor: backgroundColor,
               onPressed: onPressed,

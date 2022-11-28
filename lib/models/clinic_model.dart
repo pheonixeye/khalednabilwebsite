@@ -1,6 +1,11 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:khalednabilwebsite/functions/dyn_string_fns.dart';
+import 'package:khalednabilwebsite/functions/time_fns.dart';
+import 'package:khalednabilwebsite/providers/locale_p.dart';
+import 'package:provider/provider.dart';
 
-class Clinic {
+class Clinic extends Equatable {
   final String? id;
   final String nameEn;
   final String nameAr;
@@ -19,7 +24,7 @@ class Clinic {
   final String? specialScheduleEn;
   final String? specialScheduleAr;
 
-  Clinic({
+  const Clinic({
     this.id,
     required this.nameEn,
     required this.nameAr,
@@ -91,9 +96,12 @@ class Clinic {
   String toString() {
     return toJson().toString();
   }
+
+  @override
+  List<Object?> get props => [id];
 }
 
-class Schedule {
+class Schedule extends Equatable {
   final int intDay;
   final String weekdayEn;
   final String weekdayAr;
@@ -102,7 +110,7 @@ class Schedule {
   final int startMinute;
   final int endMinute;
 
-  Schedule({
+  const Schedule({
     required this.startHour,
     required this.endHour,
     required this.startMinute,
@@ -136,6 +144,15 @@ class Schedule {
     };
   }
 
+  bool isEnglish(BuildContext context) => context.read<PxLocale>().lang == 'en';
+
+  String scheduleString(BuildContext context) => isEnglish(context)
+      ? 'From ${modifyTime(startHour, startMinute, context)} To ${modifyTime(endHour, endMinute, context)}'
+      : 'من ${modifyTime(startHour, startMinute, context)} حتي ${modifyTime(endHour, endMinute, context)}';
+  String dayString(BuildContext context) {
+    return isEnglish(context) ? weekdayEn : weekdayAr;
+  }
+
   static List<Schedule> scheduleListFromJson(List<dynamic>? list) {
     if (list == null) return [];
     return list.map((e) => Schedule.fromJson(e)).toList();
@@ -150,4 +167,7 @@ class Schedule {
   String toString() {
     return toJson().toString();
   }
+
+  @override
+  List<Object?> get props => [intDay];
 }

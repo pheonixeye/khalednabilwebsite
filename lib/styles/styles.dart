@@ -55,6 +55,36 @@ class Styles {
         ],
       );
 
+  static TextStyle SUBTITLESTEXTSYTYLE(BuildContext context) => TextStyle(
+        fontSize: isMobile(context) ? 14 : 22,
+        color: Colors.white,
+        decorationColor: Colors.amber,
+        decorationStyle: TextDecorationStyle.wavy,
+        shadows: const [
+          BoxShadow(
+            offset: Offset(3, 3),
+            blurRadius: 3,
+            spreadRadius: 3,
+            color: Colors.amber,
+          ),
+        ],
+      );
+
+  static TextStyle CLINICSTEXTSYTYLE(BuildContext context) => TextStyle(
+        fontSize: isMobile(context) ? 18 : 26,
+        color: Colors.white,
+        decorationColor: Colors.blue,
+        decorationStyle: TextDecorationStyle.wavy,
+        shadows: const [
+          BoxShadow(
+            offset: Offset(3, 3),
+            blurRadius: 3,
+            spreadRadius: 3,
+            color: Colors.amber,
+          ),
+        ],
+      );
+
   static final MAINPAGECOMPONENTCARDCOLOR = Colors.white.withOpacity(0.0);
 
   static TextStyle HEROITEMTEXTSTYLE(double fontSize) => TextStyle(

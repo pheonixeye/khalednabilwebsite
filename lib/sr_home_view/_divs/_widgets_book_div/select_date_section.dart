@@ -1,0 +1,88 @@
+import 'package:flutter/material.dart';
+import 'package:khalednabilwebsite/components/null_value_widget.dart';
+import 'package:khalednabilwebsite/functions/time_fns.dart';
+import 'package:khalednabilwebsite/providers/locale_p.dart';
+import 'package:khalednabilwebsite/providers/px_booking_make.dart';
+import 'package:khalednabilwebsite/sr_home_view/_divs/_widgets_book_div/no_clinic_selected_card.dart';
+import 'package:khalednabilwebsite/styles/styles.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/px_clinics_get.dart';
+
+class SelectDateSection extends StatefulWidget {
+  const SelectDateSection({super.key});
+
+  @override
+  State<SelectDateSection> createState() => _SelectDateSectionState();
+}
+
+class _SelectDateSectionState extends State<SelectDateSection> {
+  DateTime getstartingdate() {
+    var startingday = context.read<PxBookingMake>().day!.intDay;
+
+    while (NOW.weekday != startingday) {
+      NOW = NOW.add(const Duration(days: 1));
+    }
+    return NOW;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer3<PxClinicGet, PxBookingMake, PxLocale>(
+      builder: (context, cl, b, l, c) {
+        while (cl.clinics == null || cl.clinics!.isEmpty) {
+          return const WhileValueEqualNullWidget();
+        }
+        while (b.clinic == null) {
+          return const NoClinicSelectedCard();
+        }
+        while (b.day == null) {
+          return const NoDaySelectedCard();
+        }
+        return Card(
+          elevation: 10,
+          shape: Styles.CARDSHAPE,
+          color: Colors.transparent,
+          child: Theme(
+            data: Theme.of(context).copyWith(
+              platform: TargetPlatform.iOS,
+              colorScheme: const ColorScheme.light(
+                primary: Colors.white,
+                onPrimary: Colors.black,
+                onSurface: Colors.white,
+              ),
+              textTheme: Theme.of(context).primaryTextTheme.copyWith(
+                    caption: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      locale: l.locale,
+                    ),
+                  ),
+              iconTheme: const IconThemeData(
+                color: Colors.white,
+                size: 50,
+              ),
+            ),
+            child: CalendarDatePicker(
+              initialDate: getstartingdate(),
+              firstDate: getstartingdate(),
+              lastDate: NOW.add(const Duration(days: 356)),
+              selectableDayPredicate: (datetime) {
+                final List<DateTime> offDates =
+                    b.clinic!.offDates.map((e) => DateTime.parse(e)).toList();
+                if (b.day!.intDay == datetime.weekday) {
+                  return true;
+                } else if (offDates.contains(datetime)) {
+                  return false;
+                } else {
+                  return false;
+                }
+              },
+              onDateChanged: (value) {},
+            ),
+          ),
+        );
+      },
+    );
+  }
+}

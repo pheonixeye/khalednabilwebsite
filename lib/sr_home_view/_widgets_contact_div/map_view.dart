@@ -16,11 +16,12 @@ class MapViewIframe extends StatefulWidget {
 
 class _MapViewIframeState extends State<MapViewIframe> {
   final IFrameElement _iframeElement = IFrameElement();
-
+  late final GlobalObjectKey key;
   @override
   void initState() {
     super.initState();
     //done CHECK LINK CHANGE WITH WIDGET CHANGE
+    key = GlobalObjectKey(widget.link);
 
     _iframeElement.src = widget.link;
     _iframeElement.style.border = 'none';
@@ -53,7 +54,7 @@ class _MapViewIframeState extends State<MapViewIframe> {
         ),
         child: IgnorePointer(
           child: HtmlElementView(
-            key: UniqueKey(),
+            key: key,
             viewType: 'iframeElement${widget.link}',
           ),
         ),

@@ -6,6 +6,7 @@ import 'package:khalednabilwebsite/sr_home_view/_divs/book_div.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/contact_div.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/footer_div.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/hero_div.dart';
+import 'package:khalednabilwebsite/sr_home_view/_divs/phone_div.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/social_div.dart';
 import 'package:provider/provider.dart';
 
@@ -41,6 +42,10 @@ class HomeView extends StatelessWidget {
               GlobalDivider(),
               // social
               DivSocial(),
+              //divider
+              GlobalDivider(),
+              //phone
+              DivPhone(),
               // divider
               GlobalDivider(),
               // footer

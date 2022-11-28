@@ -54,4 +54,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get venue => 'المكان';
+
+  @override
+  String get no_clinic_selected => 'اختر العيادة اولا...';
+
+  @override
+  String get no_day_selected => 'اختر اليوم اولا...';
+
+  @override
+  String get select_clinic => 'اختر العيادة';
+
+  @override
+  String get select_weekday => 'اختر اليوم';
+
+  @override
+  String get select_day => 'اختر التاريخ';
+
+  @override
+  String get select_info => 'ادخل بياناتك';
+
+  @override
+  String get booking_confirmed => 'تم تاكيد الحجز';
 }
