@@ -62,6 +62,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get no_day_selected => 'No Day Selected...Select Day First...';
 
   @override
+  String get no_date_selected => 'No Date Selected...Select Date First...';
+
+  @override
   String get select_clinic => 'Select Clinic';
 
   @override
@@ -75,4 +78,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get booking_confirmed => 'Booking Confirmed';
+
+  @override
+  String get error => 'Error !!!';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get kindly_enter_name => 'Kindly Enter Your Name.';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get enter_name => 'Enter Your Name.';
+
+  @override
+  String get kindly_enter_phone => 'Kindly Enter Your Mobile Number.';
+
+  @override
+  String get enter_phone => 'Enter Your Mobile Number.';
+
+  @override
+  String get missing_information => 'Missing Information';
+
+  @override
+  String get loading => 'Loading...';
+
+  @override
+  String get thanks => 'Thank you for booking with Dr.Khaled Nabil Clinics.';
+
+  @override
+  String get to_contact => 'You will be contacted by our reception team for confirmation.';
+
+  @override
+  String get no_items_found => 'No Items Found';
 }

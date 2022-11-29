@@ -91,7 +91,7 @@ class Styles {
         fontSize: fontSize,
         color: Colors.white,
         decorationColor: Colors.amber,
-        decorationStyle: TextDecorationStyle.wavy,
+        decorationStyle: TextDecorationStyle.double,
         shadows: const [
           BoxShadow(
             offset: Offset(3, 3),
@@ -101,4 +101,17 @@ class Styles {
           ),
         ],
       );
+
+  static final CONTAINERDECORATION = BoxDecoration(
+    borderRadius: BorderRadius.circular(20),
+    color: Colors.white.withOpacity(0.8),
+    boxShadow: [
+      BoxShadow(
+        offset: const Offset(3, 3),
+        blurRadius: 3,
+        spreadRadius: 3,
+        color: Colors.blue.shade200,
+      ),
+    ],
+  );
 }

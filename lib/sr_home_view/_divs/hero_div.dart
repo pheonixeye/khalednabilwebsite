@@ -8,7 +8,7 @@ import 'package:khalednabilwebsite/providers/px_hero_items_get.dart';
 import 'package:khalednabilwebsite/styles/styles.dart';
 import 'package:provider/provider.dart';
 
-import '../_widgets_hero_div/_exp.dart' deferred as wids;
+import '../_widgets_hero_div/_exp.dart';
 
 class DivHero extends StatefulWidget {
   const DivHero({Key? key}) : super(key: key);
@@ -18,45 +18,36 @@ class DivHero extends StatefulWidget {
 }
 
 class _DivHeroState extends State<DivHero> with AfterLayoutMixin {
+  late Timer timer;
+  late final PageController pageController;
   @override
   void initState() {
     super.initState();
-    wids.loadLibrary();
-  }
-
-  int page = 0;
-  late Timer timer;
-
-  int _page() {
-    return page + 1 >= context.read<PxHeroItemsGet>().heroItems!.length
-        ? 0
-        : page + 1;
+    pageController = PageController();
+    timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      context.read<PxHeroItemsGet>().setPage();
+      pageController.animateToPage(
+        context.read<PxHeroItemsGet>().page,
+        duration: const Duration(seconds: 1),
+        curve: Curves.ease,
+      );
+    });
   }
 
   @override
-  FutureOr<void> afterFirstLayout(BuildContext context) {
-    _initHeroItems().then((value) {
-      timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-        pageController.animateToPage(
-          _page(),
-          duration: const Duration(seconds: 1),
-          curve: Curves.ease,
-        );
-      });
-    });
+  FutureOr<void> afterFirstLayout(BuildContext context) async {
+    await _initHeroItems();
   }
 
   Future _initHeroItems() async {
     await context.read<PxHeroItemsGet>().fetchHeroItems(context);
   }
 
-  final pageController = PageController();
-
   @override
   void dispose() {
-    super.dispose();
     pageController.dispose();
     timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -75,17 +66,16 @@ class _DivHeroState extends State<DivHero> with AfterLayoutMixin {
             Consumer<PxHeroItemsGet>(
               builder: (context, h, c) {
                 return PageView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   reverse: true,
                   itemCount: h.heroItems!.length,
                   controller: pageController,
-                  onPageChanged: (value) {
-                    page = value;
-                  },
+                  onPageChanged: (value) {},
                   itemBuilder: (context, index) {
                     while (h.heroItems == null || h.heroItems!.isEmpty) {
                       return const WhileValueEqualNullWidget();
                     }
-                    return wids.MainHeroCard(
+                    return MainHeroCard(
                       heroItemModel: h.heroItems![index],
                     );
                   },
@@ -93,7 +83,7 @@ class _DivHeroState extends State<DivHero> with AfterLayoutMixin {
               },
             ),
             //call to action
-            wids.CallToActionColumn(),
+            const CallToActionColumn(),
           ],
         ),
       ),

@@ -19,7 +19,7 @@ class PxBookingSC extends ChangeNotifier {
   }
 
   void nxtPage(BuildContext context) {
-    _page == 4 ? _page : _page++;
+    _page == 3 ? _page : _page++;
     notifyListeners();
     switchInfo(context);
     _pageController!.animateToPage(

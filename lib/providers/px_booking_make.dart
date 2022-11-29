@@ -61,6 +61,16 @@ class PxBookingMake extends ChangeNotifier {
     notifyListeners();
   }
 
+  void nullifyValues() {
+    _clinic = null;
+    _date = null;
+    _day = null;
+    _ptName = null;
+    _ptPhone = null;
+    _booking = null;
+    notifyListeners();
+  }
+
   Future addBooking() async {
     await HxBooking.addBooking(booking!);
   }

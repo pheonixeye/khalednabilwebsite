@@ -207,6 +207,12 @@ abstract class AppLocalizations {
   /// **'No Day Selected...Select Day First...'**
   String get no_day_selected;
 
+  /// No description provided for @no_date_selected.
+  ///
+  /// In en, this message translates to:
+  /// **'No Date Selected...Select Date First...'**
+  String get no_date_selected;
+
   /// No description provided for @select_clinic.
   ///
   /// In en, this message translates to:
@@ -236,6 +242,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Booking Confirmed'**
   String get booking_confirmed;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error !!!'**
+  String get error;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// No description provided for @kindly_enter_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Kindly Enter Your Name.'**
+  String get kindly_enter_name;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @enter_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Name.'**
+  String get enter_name;
+
+  /// No description provided for @kindly_enter_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Kindly Enter Your Mobile Number.'**
+  String get kindly_enter_phone;
+
+  /// No description provided for @enter_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Mobile Number.'**
+  String get enter_phone;
+
+  /// No description provided for @missing_information.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing Information'**
+  String get missing_information;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
+
+  /// No description provided for @thanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for booking with Dr.Khaled Nabil Clinics.'**
+  String get thanks;
+
+  /// No description provided for @to_contact.
+  ///
+  /// In en, this message translates to:
+  /// **'You will be contacted by our reception team for confirmation.'**
+  String get to_contact;
+
+  /// No description provided for @no_items_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No Items Found'**
+  String get no_items_found;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

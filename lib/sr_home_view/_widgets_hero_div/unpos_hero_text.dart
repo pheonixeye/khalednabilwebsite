@@ -22,6 +22,7 @@ class HeroTextUnpositioned extends StatelessWidget {
                 child: Text(
                   e.textEn,
                   style: style,
+                  textAlign: TextAlign.center,
                 ),
               );
             } else {
@@ -30,6 +31,7 @@ class HeroTextUnpositioned extends StatelessWidget {
                 child: Text(
                   e.textAr,
                   style: style,
+                  textAlign: TextAlign.center,
                 ),
               );
             }

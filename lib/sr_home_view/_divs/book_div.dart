@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:khalednabilwebsite/functions/loc_ext_fns.dart';
 import 'package:khalednabilwebsite/functions/res_size.dart';
 import 'package:khalednabilwebsite/providers/px_booking_s_c.dart';
+import 'package:khalednabilwebsite/sr_home_view/_divs/_widgets_book_div/booking_confirmed_section.dart';
+import 'package:khalednabilwebsite/sr_home_view/_divs/_widgets_book_div/creds_confirm_section.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/_widgets_book_div/select_clinic_section.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/_widgets_book_div/select_date_section.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/_widgets_book_div/select_weekday.dart';
@@ -41,6 +43,9 @@ class DivBookApp extends StatelessWidget {
                       // select date
                       SelectDateSection(),
                       // enter credentials & confirm
+                      EnterCredentialsConfirmBookingSection(),
+                      // booking confirmed
+                      BookingConfirmedSection(),
                     ],
                   ),
                 ),

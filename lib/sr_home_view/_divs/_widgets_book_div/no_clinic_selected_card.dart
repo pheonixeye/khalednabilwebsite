@@ -45,3 +45,25 @@ class NoDaySelectedCard extends StatelessWidget {
     );
   }
 }
+
+class NoDateSelectedCard extends StatelessWidget {
+  const NoDateSelectedCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 20,
+      shape: Styles.CARDSHAPE,
+      color: Colors.grey,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            context.loc.no_date_selected,
+            style: Styles.TITLESTEXTSYTYLE(context),
+          ),
+        ),
+      ),
+    );
+  }
+}

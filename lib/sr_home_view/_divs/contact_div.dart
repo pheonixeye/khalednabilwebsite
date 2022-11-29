@@ -23,46 +23,38 @@ class DivContact extends StatefulWidget {
 }
 
 class _DivContactState extends State<DivContact> with AfterLayoutMixin {
+  late final Timer timer;
+  late final PageController pageController;
   @override
   void initState() {
     super.initState();
     wids.loadLibrary();
-  }
-
-  int page = 0;
-  late Timer timer;
-
-  int _page() {
-    return page + 1 >= context.read<PxClinicGet>().clinics!.length
-        ? 0
-        : page + 1;
-  }
-
-  @override
-  FutureOr<void> afterFirstLayout(BuildContext context) {
-    _initClinics().then((value) {
-      timer = Timer.periodic(const Duration(seconds: 10), (timer) {
-        pageController.animateToPage(
-          _page(),
-          duration: const Duration(seconds: 3),
-          curve: Curves.ease,
-        );
-      });
+    pageController = PageController();
+    timer = Timer.periodic(const Duration(seconds: 10), (timer) {
+      context.read<PxClinicGet>().setPage();
+      pageController.animateToPage(
+        context.read<PxClinicGet>().page,
+        duration: const Duration(seconds: 3),
+        curve: Curves.ease,
+      );
     });
   }
 
   @override
+  FutureOr<void> afterFirstLayout(BuildContext context) async {
+    await _initClinics();
+  }
+
+  @override
   void dispose() {
-    super.dispose();
     pageController.dispose();
     timer.cancel();
+    super.dispose();
   }
 
   Future _initClinics() async {
     await context.read<PxClinicGet>().fetchClinics();
   }
-
-  final pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -82,11 +74,10 @@ class _DivContactState extends State<DivContact> with AfterLayoutMixin {
                     return const WhileValueEqualNullWidget();
                   }
                   return PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: cl.clinics!.length,
                     controller: pageController,
-                    onPageChanged: (value) {
-                      page = value;
-                    },
+                    onPageChanged: (value) {},
                     itemBuilder: (context, index) {
                       String venue = l.lang == 'en'
                           ? '${cl.clinics![index].govEn} - ${cl.clinics![index].distEn} - ${cl.clinics![index].venueEn}'
@@ -147,11 +138,10 @@ class _DivContactState extends State<DivContact> with AfterLayoutMixin {
                     return const WhileValueEqualNullWidget();
                   }
                   return PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: cl.clinics!.length,
                     controller: pageController,
-                    onPageChanged: (value) {
-                      page = value;
-                    },
+                    onPageChanged: (value) {},
                     itemBuilder: (context, index) {
                       String venue = l.lang == 'en'
                           ? '${cl.clinics![index].govEn} - ${cl.clinics![index].distEn} - ${cl.clinics![index].venueEn}'

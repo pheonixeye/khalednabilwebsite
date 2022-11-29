@@ -51,7 +51,7 @@ class HxArticles {
 
   static Future fetchArticles({
     required int page,
-    required int docid,
+    required bool isEnglish,
   }) async {
     final Uri uri = Uri(
       scheme: Environment().config.SCHEME,
@@ -60,8 +60,9 @@ class HxArticles {
       path: '/cpanelarticles/fetch',
     );
     var body = jsonEncode({
-      'docid': docid,
+      'docid': 777777,
       'page': page,
+      'isenglish': isEnglish,
     });
 
     var response = await http.post(

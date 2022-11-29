@@ -32,7 +32,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get spec => 'اخصائي جراحات التجميل و زراعة الشعر';
 
   @override
-  String get phone => 'التليفون';
+  String get phone => 'الموبايل';
 
   @override
   String get address => 'العنوان';
@@ -62,6 +62,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get no_day_selected => 'اختر اليوم اولا...';
 
   @override
+  String get no_date_selected => 'اختر التاريخ اولا...';
+
+  @override
   String get select_clinic => 'اختر العيادة';
 
   @override
@@ -75,4 +78,43 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get booking_confirmed => 'تم تاكيد الحجز';
+
+  @override
+  String get error => 'خطأ !!!';
+
+  @override
+  String get close => 'اغلاق';
+
+  @override
+  String get confirm => 'تاكيد';
+
+  @override
+  String get kindly_enter_name => 'برجاء ادخال الاسم';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get enter_name => 'ادخل اسمك';
+
+  @override
+  String get kindly_enter_phone => 'برجاء ادخال رقم الموبايل';
+
+  @override
+  String get enter_phone => 'ادخل رقم الموبايل';
+
+  @override
+  String get missing_information => 'بيانات ناقصة';
+
+  @override
+  String get loading => 'جاري التحميل . . .';
+
+  @override
+  String get thanks => 'نشكركم علي الحجز في عيادات د / خالد نبيل';
+
+  @override
+  String get to_contact => 'سيتم التواصل بواسطة فريق الريسبشن لتاكيد الموعد';
+
+  @override
+  String get no_items_found => 'لا يوجد عناصر';
 }

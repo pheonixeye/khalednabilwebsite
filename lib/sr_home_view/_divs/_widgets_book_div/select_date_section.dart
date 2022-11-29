@@ -3,6 +3,7 @@ import 'package:khalednabilwebsite/components/null_value_widget.dart';
 import 'package:khalednabilwebsite/functions/time_fns.dart';
 import 'package:khalednabilwebsite/providers/locale_p.dart';
 import 'package:khalednabilwebsite/providers/px_booking_make.dart';
+import 'package:khalednabilwebsite/providers/px_booking_s_c.dart';
 import 'package:khalednabilwebsite/sr_home_view/_divs/_widgets_book_div/no_clinic_selected_card.dart';
 import 'package:khalednabilwebsite/styles/styles.dart';
 import 'package:provider/provider.dart';
@@ -28,8 +29,8 @@ class _SelectDateSectionState extends State<SelectDateSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer3<PxClinicGet, PxBookingMake, PxLocale>(
-      builder: (context, cl, b, l, c) {
+    return Consumer4<PxClinicGet, PxBookingMake, PxBookingSC, PxLocale>(
+      builder: (context, cl, b, sc, l, c) {
         while (cl.clinics == null || cl.clinics!.isEmpty) {
           return const WhileValueEqualNullWidget();
         }
@@ -78,7 +79,14 @@ class _SelectDateSectionState extends State<SelectDateSection> {
                   return false;
                 }
               },
-              onDateChanged: (value) {},
+              onDateChanged: (value) async {
+                final sDate = DateTime(value.year, value.month, value.day);
+                b.setdate(sDate.toIso8601String());
+                await Future.delayed(const Duration(milliseconds: 200))
+                    .then((value) {
+                  sc.nxtPage(context);
+                });
+              },
             ),
           ),
         );
