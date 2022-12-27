@@ -54,6 +54,36 @@ class Styles {
           ),
         ],
       );
+  static TextStyle ARTICLETITLESTEXTSYTYLE(BuildContext context) => TextStyle(
+        fontSize: isMobile(context) ? 20 : 28,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        decorationColor: Colors.amber,
+        decorationStyle: TextDecorationStyle.wavy,
+        shadows: const [
+          BoxShadow(
+            offset: Offset(3, 3),
+            blurRadius: 3,
+            spreadRadius: 3,
+            color: Colors.amber,
+          ),
+        ],
+      );
+  static TextStyle ARTICLESUBTITLESTEXTSYTYLE(BuildContext context) =>
+      TextStyle(
+        fontSize: isMobile(context) ? 16 : 24,
+        color: Colors.white,
+        decorationColor: Colors.blue,
+        decorationStyle: TextDecorationStyle.wavy,
+        shadows: const [
+          BoxShadow(
+            offset: Offset(3, 3),
+            blurRadius: 3,
+            spreadRadius: 3,
+            color: Colors.blue,
+          ),
+        ],
+      );
 
   static TextStyle SUBTITLESTEXTSYTYLE(BuildContext context) => TextStyle(
         fontSize: isMobile(context) ? 14 : 22,
@@ -81,6 +111,22 @@ class Styles {
             blurRadius: 3,
             spreadRadius: 3,
             color: Colors.amber,
+          ),
+        ],
+      );
+
+  static TextStyle TAGSTEXTSYTYLE() => const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        decorationColor: Colors.blue,
+        decorationStyle: TextDecorationStyle.wavy,
+        shadows: [
+          BoxShadow(
+            offset: Offset(3, 3),
+            blurRadius: 3,
+            spreadRadius: 3,
+            color: Colors.blue,
           ),
         ],
       );

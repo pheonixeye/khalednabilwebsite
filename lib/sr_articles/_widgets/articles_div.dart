@@ -1,12 +1,18 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:clickable_list_wheel_view/clickable_list_wheel_widget.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:khalednabilwebsite/components/no_items_in_list_card.dart';
 import 'package:khalednabilwebsite/components/null_value_widget.dart';
 import 'package:khalednabilwebsite/functions/res_size.dart';
+import 'package:khalednabilwebsite/pages/pages.dart';
+import 'package:khalednabilwebsite/providers/locale_p.dart';
+import 'package:khalednabilwebsite/providers/px_article_view.dart';
 import 'package:khalednabilwebsite/providers/px_articles_get.dart';
+import 'package:khalednabilwebsite/sr_articles/_widgets/article_card.dart';
 import 'package:khalednabilwebsite/styles/styles.dart';
 import 'package:provider/provider.dart';
 
@@ -52,74 +58,50 @@ class _DivArticlesState extends State<DivArticles> with AfterLayoutMixin {
               return const NoItemsInListCard();
             }
             return Center(
-              child: RotatedBox(
-                quarterTurns: -1,
-                child: ListWheelScrollView.useDelegate(
-                  itemExtent: isMobile(context)
-                      ? MediaQuery.of(context).size.width - 75
-                      : MediaQuery.of(context).size.height - 100,
-                  controller: scrollController,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  offAxisFraction: -0.5,
-                  squeeze: 1.1,
-                  overAndUnderCenterOpacity: 0.9,
-                  useMagnifier: true,
-                  childDelegate: ListWheelChildBuilderDelegate(
-                    childCount: a.articles!.length,
-                    builder: (context, index) {
-                      return RotatedBox(
-                        quarterTurns: 1,
-                        child: AnimatedContainer(
-                          width: selected == index ? 350 : 250,
-                          height: selected == index ? 350 : 250,
-                          duration: duration,
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          decoration: Styles.CONTAINERDECORATION,
-                          alignment: Alignment.center,
-                          child: Stack(
-                            fit: StackFit.expand,
-                            alignment: Alignment.center,
-                            children: [
-                              if (a.articles![index].articleImage != null)
-                                Image.memory(
-                                  base64Decode(
-                                      a.articles![index].articleImage!),
-                                  fit: BoxFit.fill,
-                                ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      a.articles![index].title,
-                                      style: Styles.TITLESTEXTSYTYLE(context),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                  if (a.articles![index].shortDescription !=
-                                      null)
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        a.articles![index].shortDescription!,
-                                        style: Styles.TITLESTEXTSYTYLE(context),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24.0),
+                child: RotatedBox(
+                  quarterTurns: -1,
+                  child: ClickableListWheelScrollView(
+                    scrollController: scrollController,
+                    itemHeight: isMobile(context) ? 300 : 500,
+                    itemCount: a.articles!.length,
+                    onItemTapCallback: (index) {
+                      context
+                          .read<PxArticleView>()
+                          .selectArticle(a.articles![index]);
+                      GoRouter.of(context).push(
+                          '/${context.read<PxLocale>().lang}/${PageNumbers.ArticlesView.i}/${a.articles![index].id}');
                     },
+                    child: ListWheelScrollView.useDelegate(
+                      scrollBehavior: ScrollConfiguration.of(context).copyWith(
+                        dragDevices: {
+                          //! Allows to swipe in web browsers
+                          PointerDeviceKind.touch,
+                          PointerDeviceKind.mouse,
+                        },
+                      ),
+                      itemExtent: isMobile(context) ? 300 : 500,
+                      controller: scrollController,
+                      perspective: 0.001,
+                      physics: const FixedExtentScrollPhysics(),
+                      offAxisFraction: 0.0,
+                      squeeze: 1.0,
+                      overAndUnderCenterOpacity: 1.0,
+                      childDelegate: ListWheelChildBuilderDelegate(
+                        builder: (context, index) {
+                          final e = a.articles![index];
+                          return ArticleCard(
+                            e: e,
+                          );
+                        },
+                        childCount: a.articles!.length,
+                      ),
+                      onSelectedItemChanged: (value) async {
+                        await a.setIndex(value, context);
+                      },
+                    ),
                   ),
-                  onSelectedItemChanged: (value) {
-                    setState(() {
-                      selected = value;
-                    });
-                  },
                 ),
               ),
             );

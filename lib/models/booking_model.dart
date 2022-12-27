@@ -7,7 +7,7 @@ class Booking {
   final String date;
   final String ptName;
   final String ptPhone;
-
+  final bool attended;
   Booking({
     this.id,
     required this.clinicId,
@@ -15,6 +15,7 @@ class Booking {
     required this.date,
     required this.ptName,
     required this.ptPhone,
+    required this.attended,
   });
 
   static Booking fromJson(dynamic json) {
@@ -25,6 +26,7 @@ class Booking {
       date: json['date'],
       ptName: json['ptname'],
       ptPhone: json['ptphone'],
+      attended: json['attended'],
     );
   }
 
@@ -35,6 +37,7 @@ class Booking {
       'date': date,
       'ptname': ptName,
       'ptphone': ptPhone,
+      'attended': attended,
     };
   }
 

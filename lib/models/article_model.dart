@@ -1,4 +1,5 @@
 class Article {
+  final String? id;
   final int docid;
   final String timeOfPub;
   final String title;
@@ -10,6 +11,7 @@ class Article {
   final bool? isEnglish;
 
   Article({
+    this.id,
     required this.docid,
     required this.timeOfPub,
     required this.title,
@@ -23,6 +25,7 @@ class Article {
 
   static Article fromJson(dynamic json) {
     return Article(
+      id: json['_id'],
       docid: json['docid'],
       timeOfPub: json['timeofpub'],
       title: json['title'],

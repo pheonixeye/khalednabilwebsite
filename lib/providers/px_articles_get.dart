@@ -13,6 +13,28 @@ class PxArticlesGet extends ChangeNotifier {
   int _page = 0;
   int get page => _page;
 
+  int _index = 0;
+  int get index => _index;
+
+  Future setIndex(int value, BuildContext context) async {
+    _index = value;
+    if (_index == _articles!.length - 1) {
+      _page++;
+      notifyListeners();
+      await addToFetchedArticles(context);
+    }
+  }
+
+  Future addToFetchedArticles(BuildContext context) async {
+    var a = await HxArticles.fetchArticles(
+      page: page,
+      isEnglish: context.read<PxLocale>().lang == 'en',
+    );
+    List<Article> newArticles = Article.articlesList(a);
+    _articles!.addAll(newArticles);
+    notifyListeners();
+  }
+
   Future fetchArticles(BuildContext context) async {
     var a = await HxArticles.fetchArticles(
       page: page,

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:khalednabilwebsite/sr_about/about_view.dart';
 import 'package:khalednabilwebsite/sr_articles/articles_view.dart';
@@ -27,4 +29,18 @@ class Pages {
 //about
     AboutView(),
   ];
+}
+
+enum PageNumbers {
+  HomeView(0),
+  BookAppointementView(1),
+  ServicesView(2),
+  BeforeAfterView(3),
+  MediaView(4),
+  ArticlesView(5),
+  ContactView(6),
+  AboutView(7);
+
+  final int i;
+  const PageNumbers(this.i);
 }

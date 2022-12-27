@@ -46,6 +46,8 @@ dependencies:
   url_launcher:
   arabic_numbers: ^1.0.0
   equatable: ^2.0.5
+  # infinite_carousel: ^1.0.2
+  clickable_list_wheel_view:
 
 dev_dependencies:
   flutter_test:

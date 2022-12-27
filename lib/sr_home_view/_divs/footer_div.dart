@@ -1,3 +1,6 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:khalednabilwebsite/components/link_text.dart';
 import 'package:khalednabilwebsite/functions/res_size.dart';
@@ -39,6 +42,12 @@ class DivFooter extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.grey,
                 ),
+                onTap: () {
+                  window.open(
+                    'https://kareemzaherportfolio.web.app',
+                    'Kareem Zaher Portfolio',
+                  );
+                },
                 align: TextAlign.center,
               ),
             ),

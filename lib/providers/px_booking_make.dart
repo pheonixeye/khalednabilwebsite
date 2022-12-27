@@ -57,6 +57,7 @@ class PxBookingMake extends ChangeNotifier {
       date: date!,
       ptName: ptName!,
       ptPhone: ptPhone!,
+      attended: false,
     );
     notifyListeners();
   }
