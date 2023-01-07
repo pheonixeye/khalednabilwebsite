@@ -7,7 +7,7 @@ import 'package:khalednabilwebsite/providers/locale_p.dart';
 import 'package:provider/provider.dart';
 
 class PxArticlesGet extends ChangeNotifier {
-  List<Article>? _articles = [];
+  List<Article>? _articles;
   List<Article>? get articles => _articles;
 
   int _page = 0;

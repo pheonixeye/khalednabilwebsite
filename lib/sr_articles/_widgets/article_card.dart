@@ -37,6 +37,12 @@ class _ArticleCardState extends State<ArticleCard> {
                     base64Decode(widget.e.articleImage!),
                     fit: BoxFit.fill,
                   ),
+                Container(
+                  // clipBehavior: Clip.antiAliasWithSaveLayer,
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: Colors.grey.withOpacity(0.6),
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -49,12 +55,14 @@ class _ArticleCardState extends State<ArticleCard> {
                       ),
                     ),
                     if (widget.e.shortDescription != null)
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          widget.e.shortDescription!,
-                          style: Styles.ARTICLESUBTITLESTEXTSYTYLE(context),
-                          textAlign: TextAlign.center,
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            widget.e.shortDescription!,
+                            style: Styles.ARTICLESUBTITLESTEXTSYTYLE(context),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     Padding(

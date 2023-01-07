@@ -108,4 +108,24 @@ class HxArticles {
       throw response.body;
     }
   }
+
+  static Future fetchOneArticleById(String id) async {
+    final Uri uri = Uri(
+      scheme: Environment().config.SCHEME,
+      host: Environment().config.HOST,
+      port: Environment().config.PORT,
+      path: '/cpanelarticles/$id',
+    );
+
+    var response = await http.get(
+      uri,
+      headers: Environment().config.HEADERS,
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw response.body;
+    }
+  }
 }
